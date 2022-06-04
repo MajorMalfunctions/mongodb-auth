@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16"
+  },
+  "name": "mongodb",
+  "version": "0.0.1",
+  "description": "mongodb backend testing",
+  "main": "server.js",
+  "scripts": {
+    "app": "nodemon app.js",
+    "jep": "nodemon main.js",
+    "start": "nodemon server.js",
+    "dev:build": "webpack -w",
+    "dev": "cross-env NODE_ENV=development node server.js"
+  },
+  "author": "jepski",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^5.73.0",
+    "webpack-node-externals": "^3.0.0"
+  }
