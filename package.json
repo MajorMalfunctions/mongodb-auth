@@ -37,3 +37,4 @@
     "webpack": "^5.73.0",
     "webpack-node-externals": "^3.0.0"
   }
+}

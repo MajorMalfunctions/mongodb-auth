@@ -36,7 +36,7 @@ const Role = db.role;
     })
     .catch(err => {
       console.error("Connection error", err);
-        console.log("DB (⌐■_■) 🤯🙄", err);
+        console.log(" 😡😠 DB (⌐■_■) 🤯🙄", err);
       process.exit();
   });
 
@@ -76,4 +76,11 @@ require('./app/routes/user.routes')(app);
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." })
+  res.json({ message: "Welcome to bezkoder application." });
+});
+// set port, listen for requests
+const PORT = process.env.PORT || 4200;
+app.listen(PORT, () => {
+  console.log(" ☜(ﾟヮﾟ☜) Now Connected (☞ﾟヮﾟ)☞ ")
+    console.log(`Server is running on port ${PORT}❗❗❗.`);
+});

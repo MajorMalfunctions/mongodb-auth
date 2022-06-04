@@ -5,7 +5,7 @@ const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
-  let token = req.session.token;
+  let token = req.headers["x-access-token"];
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });
   }
@@ -16,7 +16,7 @@ verifyToken = (req, res, next) => {
     req.userId = decoded.id;
     next();
   });
-};
+ };
 
 isAdmin = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
@@ -26,7 +26,7 @@ isAdmin = (req, res, next) => {
     }
     Role.find(
       {
-        _id: { $in: user.roles },
+        _id: { $in: user.roles }
       },
       (err, roles) => {
         if (err) {
@@ -44,7 +44,7 @@ isAdmin = (req, res, next) => {
       }
     );
   });
-};
+ };
 
 isModerator = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
@@ -54,7 +54,7 @@ isModerator = (req, res, next) => {
     }
     Role.find(
       {
-        _id: { $in: user.roles },
+        _id: { $in: user.roles }
       },
       (err, roles) => {
         if (err) {
@@ -72,10 +72,11 @@ isModerator = (req, res, next) => {
       }
     );
   });
-};
+ };
+
 const authJwt = {
   verifyToken,
   isAdmin,
-  isModerator,
+  isModerator
 };
 module.exports = authJwt;
